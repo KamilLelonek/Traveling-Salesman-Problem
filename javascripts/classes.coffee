@@ -1,8 +1,8 @@
 class @City
-  constructor: (@x, @y) ->
+  constructor: (@id, @x, @y) ->
 
-class @Path
+class @Individual
   constructor: (@cities = []) ->
 
-class @Graph
-  constructor: (@paths = []) ->
+class @Population
+  constructor: (@individuals = []) ->

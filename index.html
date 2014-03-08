@@ -8,14 +8,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="bootstrap/jasny-bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/main.css">
   </head>
   <body>
+    <main class="container">
+      <section id="file-uploader" class="row">
+        <div class="fileinput fileinput-new col-xs-4 col-xs-offset-4" data-provides="fileinput">
+          <div class="input-group">
+            <div class="form-control" data-trigger="fileinput">
+              <i class="glyphicon glyphicon-file fileinput-exists"></i>
+              <span class="fileinput-filename"></span>
+            </div>
+            <span class="input-group-addon btn btn-primary btn-file">
+              <span class="fileinput-new">Select file</span>
+              <span class="fileinput-exists">Change</span>
+              <input type="file" id="file" name="file">
+            </span>
+            <a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput">Remove</a>
+          </div>
+        </div>
+        <div class="col-xs-1">
+          <button id="btn-calculate" type="button" class="btn btn-labeled btn-success hidden">
+          <span class="btn-label">
+            <i class="glyphicon glyphicon-ok"></i>
+          </span>
+            Calculate
+          </button>
+        </div>
+      </section>
+      <section id="controls"></section>
+      <section id="text_result"></section>
+      <section id="graph_result"></section>
+    </main>
+
+    <!-- LIBRARIES -->
     <script src="javascripts/libraries/jquery-2.1.0.min.js"></script>
     <script src="bootstrap/bootstrap.min.js"></script>
+    <script src="bootstrap/jasny-bootstrap.min.js"></script>
     <script src="javascripts/libraries/sugar.min.js"></script>
     <script src="javascripts/libraries/Chart.min.js"></script>
     <script src="javascripts/libraries/arbor.js"></script>
     <script src="javascripts/libraries/arbor-tween.js"></script>
+
+    <!-- ALGORITHM -->
+    <script src="javascripts/classes.js"></script>
+    <script src="javascripts/evolutions.js"></script>
+    <script src="javascripts/builder.js"></script>
+    <script src="javascripts/tsp.js"></script>
+    <script src="javascripts/main.js"></script>
+    <script src="javascripts/drawer.js"></script>
   </body>
 </html>

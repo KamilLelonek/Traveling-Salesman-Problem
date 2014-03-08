@@ -2,10 +2,10 @@ class Evolution
   evolve: ->
 
 class @Selection extends Evolution
-  constructor: (@population) ->
+  select: (@population) ->
 
 class @Crossing extends Evolution
-  constructor: (@population) ->
+  cross: (@population) ->
 
 class @Mutation extends Evolution
-  constructor: (@population) ->
+  mutate: (@population) ->

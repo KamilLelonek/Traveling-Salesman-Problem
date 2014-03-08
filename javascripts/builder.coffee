@@ -2,7 +2,7 @@ class @Builder
   constructor: (callback) ->
     @reader = new FileReader()
     @reader.onload = (event) =>
-      @_read(event) and callback()
+      @_read(event) and callback @cities
 
   readFile: (file) ->
     @reader.readAsBinaryString file
@@ -17,5 +17,5 @@ class @Builder
         @_buildCity city[0], city[1], city[2]
 
   _buildCity: (id, x, y) ->
-    @cities ||= []
+    @cities ?= []
     @cities.push new City(id, x, y)

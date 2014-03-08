@@ -2,16 +2,21 @@ class @TSP
   constructor: (
                   @population_count  = 10
                   @iteration_count   = 10
-                  @selection_percent = 30
                   @mutation_percent  = 30
                   @crossing_percent  = 30
                 ) ->
-    @selection  = new Selection()
-    @crossing   = new Crossing()
-    @mutation   = new Mutation()
+    @selection  = new Selection @population_count
+    @crossing   = new Crossing  @crossing_percent
+    @mutation   = new Mutation  @mutation_percent
 
   inject: (cities) =>
-    individuals = [0...@population_count].map => cities.randomize()
+    individuals = [0...@population_count].map => new Individual cities.randomize()
     @population = new Population individuals
 
-  calculate: (callback) =>
+  calculate: (callback_all, callback_each) =>
+    @iteration_count.times =>
+      @population = @crossing.evolve  @population
+      @population = @mutation.evolve  @population
+      @population = @selection.evolve @population
+      callback_each @population
+    callback_all @population

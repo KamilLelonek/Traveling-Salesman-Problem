@@ -1,6 +1,7 @@
 class @Main
   constructor: ->
     @builder = new Builder(@handleCalculate)
+    @drawer  = new Drawer()
     @tsp     = new TSP()
     @handleFileUploads()
 
@@ -8,13 +9,15 @@ class @Main
     $('#file').change (event) =>
       @builder.readFile event.target.files[0]
 
-  handleCalculate: =>
-    cities = @builder.cities
+  handleCalculate: (cities) =>
     if cities.length
       $('#btn-calculate').removeClass('hidden').click =>
         @tsp.inject cities
-        @tsp.calculate @showResult
+        @tsp.calculate @showTotalResult, @showPartialResult
 
-  showResult: =>
+  showPartialResult: (population) =>
+    @drawer.draw population
+
+  showTotalResult: (population) =>
 
 new Main()

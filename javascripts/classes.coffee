@@ -8,15 +8,21 @@ class @City
 
 class @Individual
   constructor: (@cities = []) ->
-    @weight = 0
+    @_totalLength = 0
 
-  calculateWeight: =>
-    return @weight if @weight
+  length: =>
+    return @_totalLength if @_totalLength
     count = @cities.length - 1
     @cities.each (element, index) =>
       if index isnt count
         nextElement = @cities[index + 1]
-        @weight += element.distanceTo nextElement
+        @_totalLength += element.distanceTo nextElement
+    @_totalLength
 
 class @Population
-  constructor: (@individuals = []) ->
+  constructor : (@individuals) ->
+
+  stats: =>
+    best    : @individuals.min('length')
+    worst   : @individuals.max('length')
+    average : @individuals.average('length')

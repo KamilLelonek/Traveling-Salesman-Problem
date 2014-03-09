@@ -19,7 +19,7 @@ values = =>
 
 showTotalResult = =>
   drawer = new Drawer @storage
-  #    drawer.drawGraph()
+  drawer.drawGraph()
   drawer.drawCharts()
   drawer.drawComparison()
 

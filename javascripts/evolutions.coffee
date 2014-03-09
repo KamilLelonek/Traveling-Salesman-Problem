@@ -27,7 +27,10 @@ class @Crossing extends Evolution
       @_makeAChild mather, father
 
   _makeAChild: (mather, father) =>
-    new Individual father.zip(mather).flatten().unique('id')
+    middle     = father.length / 2
+    halfFather = father.to   middle
+    halfMather = mather.from middle
+    new Individual [].union(halfFather, halfMather, father)
 
 class @Mutation extends Evolution
   evolve: (population) =>

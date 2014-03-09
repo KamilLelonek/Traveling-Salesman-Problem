@@ -50,34 +50,33 @@ class @Main
     chartAverages.Line @_dataAverages()
 
   _dataBests: =>
-    labels   : [0...@storage.bests.length]
+    labels   : [1..@storage.iterationCount]
     datasets : [
-      fillColor : "rgba(220,220,220,0.5)",
-      strokeColor : "rgba(220,220,220,1)",
-      pointColor : "rgba(220,220,220,1)",
-      pointStrokeColor : "#fff",
+      fillColor : "rgba(192,255,62,0.1)",
+      strokeColor : "lightGray",
+      pointColor : "white",
+      pointStrokeColor : "#99CC00",
       data : @storage.bests.map 'length'
     ]
 
   _dataWorsts: =>
-    labels : [0...@storage.worsts.length]
+    labels   : [1..@storage.iterationCount]
     datasets : [
-      fillColor : "rgba(220,220,220,0.5)",
-      strokeColor : "rgba(220,220,220,1)",
-      pointColor : "rgba(220,220,220,1)",
-      pointStrokeColor : "#fff",
+      fillColor : "rgba(255,48,48,0.1)",
+      strokeColor : "lightGray",
+      pointColor : "white",
+      pointStrokeColor : "FF4444",
       data : @storage.worsts.map 'length'
     ]
 
   _dataAverages: =>
-    labels : [0...@storage.averages.length]
+    labels   : [1..@storage.iterationCount]
     datasets : [
-      fillColor : "rgba(220,220,220,0.5)",
-      strokeColor : "rgba(220,220,220,1)",
-      pointColor : "rgba(220,220,220,1)",
-      pointStrokeColor : "#fff",
-      data : @storage.averages.map 'length'
+      fillColor : "rgba(135,206,250,0.1)",
+      strokeColor : "lightGray",
+      pointColor : "white",
+      pointStrokeColor : "#33B5E5",
+      data : @storage.averages
     ]
-
 
 new Main()

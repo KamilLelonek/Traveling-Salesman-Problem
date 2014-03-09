@@ -1,7 +1,7 @@
 class @TSP
   constructor: (
                   @population_count  = 10
-                  @iteration_count   = 10
+                  @iteration_count   = 30
                   @mutation_percent  = 30
                   @crossing_percent  = 30
                 ) ->

@@ -1,5 +1,7 @@
 class @Storage
-  constructor: -> @reset()
+  constructor: ->
+    @reset()
+    @iterationCount = 0
 
   reset: =>
     @bests       = []
@@ -15,7 +17,7 @@ class @Storage
     @populations.push population
 
     console.clear()
-    console.log '\n\n'
+    console.log "\n\n#{(++@iterationCount).ordinalize()} iteration"
     console.log "Best    : #{stats.best.length()}"
     console.log "Worst   : #{stats.worst.length()}"
     console.log "Average : #{stats.average}"

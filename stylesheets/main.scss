@@ -1,5 +1,5 @@
 main {
-  margin : 50px;
+  margin-bottom : 50px;
 }
 
 canvas {
@@ -26,11 +26,21 @@ canvas {
   }
 }
 
-.input-group-addon {
-  color : white;
-}
-
 #comparison {
   width  : 1000px;
   height : 400px;
+}
+
+header h1 {
+  text-align : center;
+}
+
+#controls {
+  margin : 0 auto 20px;
+  width  : 50%;
+
+  p {
+    text-align : right;
+    line-height: 2.3em;
+  }
 }

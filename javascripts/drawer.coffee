@@ -2,6 +2,7 @@ class @Drawer
   constructor: (@storage) ->
 
   drawGraph: =>
+    $('#wrapper-graph').removeClass 'hidden'
     population = @storage.populations.last()
     graph  = new Graph()
     cities = population.stats().best.cities
@@ -20,6 +21,7 @@ class @Drawer
     renderer = new Graph.Renderer.Raphael("canvas", graph, width, height)
 
   drawCharts: =>
+    $('#wrapper-charts').removeClass 'hidden'
     ctxBests      = $('#chart-bests')   .get(0).getContext('2d')
     ctxWorsts     = $('#chart-worsts')  .get(0).getContext('2d')
     ctxAverages   = $('#chart-averages').get(0).getContext('2d')
@@ -61,6 +63,7 @@ class @Drawer
     ]
 
   drawComparison: =>
+    $('#wrapper-comparison').removeClass 'hidden'
     $("#comparison").highcharts
       title:
         text: "Population comparison"

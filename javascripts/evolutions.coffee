@@ -16,14 +16,16 @@ class @Crossing extends Evolution
   evolve: (population) =>
     individuals = population.individuals[..]
     individualsToCross  = @_getIndividualsToEvolve individuals
-    individualsCrossed  = @_crossIndividuals individualsToCross
+    individualsCrossed  = @_crossIndividuals individualsToCross[..]
     new Population individuals.include individualsCrossed
 
   _crossIndividuals: (individuals) =>
     return individuals if individuals.length < 3
     while individuals.length > 1
-      father = individuals.removeAt(0)[0].cities
-      mather = individuals.removeAt(0)[0].cities
+      father = individuals[0].cities
+      individuals.removeAt(0)
+      mather = individuals[0].cities
+      individuals.removeAt(0)
       @_makeAChild mather, father
 
   _makeAChild: (mather, father) =>
@@ -36,7 +38,7 @@ class @Mutation extends Evolution
   evolve: (population) =>
     individuals = population.individuals[..]
     individualsToMutate = @_getIndividualsToEvolve individuals
-    individualsMutated  = @_mutateIndividuals individualsToMutate
+    individualsMutated  = @_mutateIndividuals individualsToMutate[..]
     new Population individuals.include individualsMutated
 
   _mutateIndividuals: (individuals) =>

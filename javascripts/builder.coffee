@@ -6,7 +6,7 @@ class @Builder
 
   readFile: (file) ->
     @cities = []
-    @reader.readAsBinaryString file
+    try @reader.readAsBinaryString file
 
   _buildCities: (event) ->
     fileContent = event.target.result

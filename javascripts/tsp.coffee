@@ -1,10 +1,9 @@
 class @TSP
-  constructor: (
-                  @population_count  = 10
-                  @iteration_count   = 10
-                  @mutation_percent  = 30
-                  @crossing_percent  = 30
-                ) ->
+  constructor: (vals) ->
+    @population_count  = vals[0] ? 10
+    @iteration_count   = vals[1] ? 10
+    @mutation_percent  = vals[2] ? 30
+    @crossing_percent  = vals[3] ? 30
     @crossing   = new Crossing  @crossing_percent
     @mutation   = new Mutation  @mutation_percent
     @selection  = new Selection @population_count

@@ -7,20 +7,51 @@
     <meta name="description" content="Genetic alogirthm for solving traveling salesman problem">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="bootstrap/bootstrap-theme.min.css">
     <link rel="stylesheet" href="bootstrap/jasny-bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/main.css">
   </head>
   <body>
     <main class="container">
       <div class="row">
+        <header>
+          <h1>Traveling Salesman Problem</h1>
+        </header>
         <section id="controls">
-          <input type="text" class="form-control" id="percentage-mutation">
-          <input type="text" class="form-control" id="percentage-crossing">
-          <input type="text" class="form-control" id="population-count">
+          <div class="row">
+            <div class="col-xs-4">
+              <p>Percentage mutation</p>
+            </div>
+            <div class="col-xs-8">
+              <input type="text" class="form-control" id="percentage-mutation">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">
+              <p>Percentage crossing</p>
+            </div>
+            <div class="col-xs-8">
+              <input type="text" class="form-control" id="percentage-crossing">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">
+              <p>Population count</p>
+            </div>
+            <div class="col-xs-8">
+              <input type="text" class="form-control" id="population-count">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">
+              <p>Iteration count</p>
+            </div>
+            <div class="col-xs-8">
+              <input type="text" class="form-control" id="iteration-count">
+            </div>
+          </div>
         </section>
         <section id="file-uploader">
-          <div class="fileinput fileinput-new col-xs-4 col-xs-offset-3" data-provides="fileinput">
+          <div class="fileinput fileinput-new col-xs-4 col-xs-offset-4" data-provides="fileinput">
             <div class="input-group">
               <div class="form-control" data-trigger="fileinput">
                 <i class="glyphicon glyphicon-file fileinput-exists"></i>
@@ -46,14 +77,20 @@
         <section id="text_result"></section>
         <section id="graph_result"></section>
       </div>
-      <blockquote>Bests</blockquote>
-      <canvas id="chart-bests" width="1000" height="400"></canvas>
-      <blockquote>Worsts</blockquote>
-      <canvas id="chart-worsts" width="1000" height="400"></canvas>
-      <blockquote>Averages</blockquote>
-      <canvas id="chart-averages" width="1000" height="400"></canvas>
-      <div id="comparison"></div>
-      <div id="canvas"></div>
+      <section id="wrapper-charts" class="hidden">
+        <blockquote>Bests</blockquote>
+        <canvas id="chart-bests" width="1000" height="400"></canvas>
+        <blockquote>Worsts</blockquote>
+        <canvas id="chart-worsts" width="1000" height="400"></canvas>
+        <blockquote>Averages</blockquote>
+        <canvas id="chart-averages" width="1000" height="400"></canvas>
+      </section>
+      <section id="wrapper-comparison" class="hidden">
+        <div id="comparison"></div>
+      </section>
+      <section id="wrapper-graph" class="hidden">
+        <div id="canvas"></div>
+      </section>
     </main>
 
     <!-- LIBRARIES -->

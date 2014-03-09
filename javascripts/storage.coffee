@@ -22,5 +22,5 @@ class @Storage
     console.log "Average : #{stats.average}"
 
 
-  worstsIndividuals : => @bests .map 'length'
-  bestsIndividuals  : => @worsts.map 'length'
+  worstsIndividuals : => @worsts.map 'length'
+  bestsIndividuals  : => @bests.map  'length'

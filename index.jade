@@ -10,10 +10,14 @@ html
     link(rel='stylesheet', href='bootstrap/jasny-bootstrap.min.css')
     link(rel='stylesheet', href='stylesheets/main.css')
   body
+    nav.navbar.navbar-default.navbar-fixed-top
+      .container-fluid
+        .navbar-header
+          .navbar-brand Traveling Salesman Problem
+        p.navbar-text.navbar-right Created by&nbsp;
+          a.navbar-link(href='..') Kamil Lelonek
     main.container
       .row
-        header
-          h1 Traveling Salesman Problem
         section#controls
           .row
             .col-xs-4
@@ -49,7 +53,7 @@ html
             span.input-group-addon
               input#checkbox-graph(type='checkbox')
         section#file-uploader
-          .fileinput.fileinput-new.col-xs-4.col-xs-offset-4(data-provides='fileinput')
+          .fileinput.fileinput-new.col-xs-4.col-xs-offset-3(data-provides='fileinput')
             .input-group
               .form-control(data-trigger='fileinput')
                 i.glyphicon.glyphicon-file.fileinput-exists
@@ -59,6 +63,10 @@ html
                 span.fileinput-exists Change
                 input#file(type='file', name='file')
               a.input-group-addon.btn.btn-danger.fileinput-exists(href='#', data-dismiss='fileinput') Remove
+          .col-xs-2
+            a.btn.btn-info(href='/datasets')
+              span.badge.pull-right 4
+              | Datasets&nbsp;
           .col-xs-1
             button#btn-calculate.btn.btn-labeled.btn-success.hidden(type='button')
               span.btn-label

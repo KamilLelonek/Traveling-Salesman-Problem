@@ -11,11 +11,16 @@
     <link rel="stylesheet" href="stylesheets/main.css">
   </head>
   <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div class="navbar-brand">Traveling Salesman Problem</div>
+        </div>
+        <p class="navbar-text navbar-right">Created by&nbsp;<a href=".." class="navbar-link">Kamil Lelonek</a></p>
+      </div>
+    </nav>
     <main class="container">
       <div class="row">
-        <header>
-          <h1>Traveling Salesman Problem</h1>
-        </header>
         <section id="controls">
           <div class="row">
             <div class="col-xs-4">
@@ -65,12 +70,13 @@
           </div>
         </section>
         <section id="file-uploader">
-          <div data-provides="fileinput" class="fileinput fileinput-new col-xs-4 col-xs-offset-4">
+          <div data-provides="fileinput" class="fileinput fileinput-new col-xs-4 col-xs-offset-3">
             <div class="input-group">
               <div data-trigger="fileinput" class="form-control"><i class="glyphicon glyphicon-file fileinput-exists"></i><span class="fileinput-filename"></span></div><span class="input-group-addon btn btn-primary btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span>
                 <input id="file" type="file" name="file"></span><a href="#" data-dismiss="fileinput" class="input-group-addon btn btn-danger fileinput-exists">Remove</a>
             </div>
           </div>
+          <div class="col-xs-2"><a href="/datasets" class="btn btn-info"><span class="badge pull-right">4</span>Datasets&nbsp;</a></div>
           <div class="col-xs-1">
             <button id="btn-calculate" type="button" class="btn btn-labeled btn-success hidden"><span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Calculate</button>
           </div>

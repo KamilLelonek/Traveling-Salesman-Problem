@@ -13,10 +13,10 @@ class @TSP
     individuals = [0...@population_count].map => new Individual cities.randomize()
     @population = new Population individuals
 
-  calculate: (callback_all, callback_each) =>
+  calculate: (callback, storage) =>
     @iteration_count.times =>
       @population = @crossing.evolve  @population
       @population = @mutation.evolve  @population
       @population = @selection.evolve @population
-      callback_each @population
-    callback_all @population
+      storage.store @population
+    callback @population

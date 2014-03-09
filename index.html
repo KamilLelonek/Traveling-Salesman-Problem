@@ -16,9 +16,9 @@
       <div class="row">
         <!-- http://www.virtuosoft.eu/code/bootstrap-touchspin/ -->
         <!--<section id="controls">-->
-          <!--<input type="text" class="form-control" id="percentage-mutation">-->
-          <!--<input type="text" class="form-control" id="percentage-crossing">-->
-          <!--<input type="text" class="form-control" id="population-count">-->
+        <!--<input type="text" class="form-control" id="percentage-mutation">-->
+        <!--<input type="text" class="form-control" id="percentage-crossing">-->
+        <!--<input type="text" class="form-control" id="population-count">-->
         <!--</section>-->
         <section id="file-uploader">
           <div class="fileinput fileinput-new col-xs-4 col-xs-offset-3" data-provides="fileinput">
@@ -43,10 +43,24 @@
               Calculate
             </button>
           </div>
+          <div class="col-xs-1">
+            <div id="spinner" class="bubblingG hidden">
+              <span id="bubblingG_1"></span>
+              <span id="bubblingG_2"></span>
+              <span id="bubblingG_3"></span>
+            </div>
+          </div>
         </section>
         <section id="text_result"></section>
         <section id="graph_result"></section>
       </div>
+      <blockquote>Bests</blockquote>
+      <canvas id="chart-bests" width="1000" height="400"></canvas>
+      <blockquote>Worsts</blockquote>
+      <canvas id="chart-worsts" width="1000" height="400"></canvas>
+      <blockquote>Averages</blockquote>
+      <canvas id="chart-averages" width="1000" height="400"></canvas>
+      <div id="canvas"></div>
     </main>
 
     <!-- LIBRARIES -->
@@ -56,15 +70,16 @@
     <script src="bootstrap/bootstrap.touchspin.js"></script>
     <script src="javascripts/libraries/sugar.min.js"></script>
     <script src="javascripts/libraries/Chart.min.js"></script>
-    <script src="javascripts/libraries/arbor.js"></script>
-    <script src="javascripts/libraries/arbor-tween.js"></script>
+    <script src="javascripts/libraries/raphael-min.js"></script>
+    <script src="javascripts/libraries/dracula_graffle.js"></script>
+    <script src="javascripts/libraries/dracula_graph.js"></script>
 
     <!-- ALGORITHM -->
     <script src="javascripts/classes.js"></script>
     <script src="javascripts/evolutions.js"></script>
     <script src="javascripts/builder.js"></script>
     <script src="javascripts/tsp.js"></script>
-    <script src="javascripts/drawer.js"></script>
+    <script src="javascripts/storage.js"></script>
     <script src="javascripts/main.js"></script>
   </body>
 </html>

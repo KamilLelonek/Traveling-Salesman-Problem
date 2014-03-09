@@ -2,6 +2,11 @@ main {
   margin-top : 20px;
 }
 
+canvas {
+  display : block;
+  width   : 100%;
+}
+
 .btn-file {
   position : relative;
   overflow : hidden;
@@ -14,7 +19,6 @@ main {
     min-height : 100%;
     font-size  : 999px;
     text-align : right;
-    filter     : alpha(opacity=0);
     opacity    : 0;
     outline    : none;
     background : white;
@@ -25,4 +29,72 @@ main {
 
 .input-group-addon {
   color : white;
+}
+
+.bubblingG {
+  text-align : center;
+  width      : 80px;
+  height     : 50px;
+}
+
+.bubblingG span {
+  display               : inline-block;
+  vertical-align        : middle;
+  width                 : 10px;
+  height                : 10px;
+  margin                : 25px auto;
+  background            : #00AEFF;
+  -webkit-border-radius : 50px;
+  -webkit-animation     : bubblingG 0.7s infinite alternate;
+  border-radius         : 50px;
+  animation             : bubblingG 0.7s infinite alternate;
+}
+
+#bubblingG_1 {
+  -webkit-animation-delay : 0s;
+  animation-delay         : 0s;
+}
+
+#bubblingG_2 {
+  -webkit-animation-delay : 0.21s;
+  animation-delay         : 0.21s;
+}
+
+#bubblingG_3 {
+  -webkit-animation-delay : 0.42s;
+  animation-delay         : 0.42s;
+}
+
+@-webkit-keyframes bubblingG {
+  0% {
+    width             : 10px;
+    height            : 10px;
+    background-color  : #00AEFF;
+    -webkit-transform : translateY(0);
+  }
+
+  100% {
+    width             : 24px;
+    height            : 24px;
+    background-color  : #FFFFFF;
+    -webkit-transform : translateY(-21px);
+  }
+
+}
+
+@keyframes bubblingG {
+  0% {
+    width            : 10px;
+    height           : 10px;
+    background-color : #00AEFF;
+    transform        : translateY(0);
+  }
+
+  100% {
+    width            : 24px;
+    height           : 24px;
+    background-color : #FFFFFF;
+    transform        : translateY(-21px);
+  }
+
 }

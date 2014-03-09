@@ -8,14 +8,13 @@ class @City
 
 class @Individual
   constructor: (@cities = []) ->
-    @_totalLength = 0
 
   length: =>
-    return @_totalLength if @_totalLength
+    @totalLength = 0
     for i in [0 ... @cities.length - 1]
       [element, nextElement] = @cities[i .. i + 1]
-      @_totalLength += element.distanceTo nextElement
-    @_totalLength
+      @totalLength += element.distanceTo nextElement
+    @totalLength
 
 class @Population
   constructor : (@individuals) ->

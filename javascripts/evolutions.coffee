@@ -4,13 +4,13 @@ class Evolution
 
   _getIndividualsToEvolve: (individuals) =>
     probability = Math.round individuals.length * (@percentage / 100)
-    individuals.sortBy('length').to probability
+    individuals.sortBy('length', true).to probability
 
 class @Selection extends Evolution
   constructor: (@maxCount)  ->
   evolve     : (population) =>
     individuals = population.individuals[..]
-    new Population individuals.sortBy('length', true).to @maxCount
+    new Population individuals.sortBy('length').to @maxCount
 
 class @Crossing extends Evolution
   evolve: (population) =>

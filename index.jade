@@ -1,0 +1,102 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title SI - Traveling Salesman Problem
+    meta(name='description', content='Genetic alogirthm for solving traveling salesman problem')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='bootstrap/bootstrap.min.css')
+    link(rel='stylesheet', href='bootstrap/jasny-bootstrap.min.css')
+    link(rel='stylesheet', href='stylesheets/main.css')
+  body
+    main.container
+      .row
+        header
+          h1 Traveling Salesman Problem
+        section#controls
+          .row
+            .col-xs-4
+              p Percentage mutation
+            .col-xs-8
+              input#percentage-mutation.form-control(type='text')
+          .row
+            .col-xs-4
+              p Percentage crossing
+            .col-xs-8
+              input#percentage-crossing.form-control(type='text')
+          .row
+            .col-xs-4
+              p Population count
+            .col-xs-8
+              input#population-count.form-control(type='text')
+          .row
+            .col-xs-4
+              p Iteration count
+            .col-xs-8
+              input#iteration-count.form-control(type='text')
+        section#drawing-options
+          .input-group
+            input.form-control(type='text', value='Display charts', disabled='disabled')
+            span.input-group-addon
+              input#checkbox-charts(type='checkbox', checked='checked')
+          .input-group
+            input.form-control(type='text', value='Show statistics', disabled='disabled')
+            span.input-group-addon
+              input#checkbox-stats(type='checkbox', checked='checked')
+          .input-group
+            input.form-control(type='text', value='Draw graph', disabled='disabled')
+            span.input-group-addon
+              input#checkbox-graph(type='checkbox')
+        section#file-uploader
+          .fileinput.fileinput-new.col-xs-4.col-xs-offset-4(data-provides='fileinput')
+            .input-group
+              .form-control(data-trigger='fileinput')
+                i.glyphicon.glyphicon-file.fileinput-exists
+                span.fileinput-filename
+              span.input-group-addon.btn.btn-primary.btn-file
+                span.fileinput-new Select file
+                span.fileinput-exists Change
+                input#file(type='file', name='file')
+              a.input-group-addon.btn.btn-danger.fileinput-exists(href='#', data-dismiss='fileinput') Remove
+          .col-xs-1
+            button#btn-calculate.btn.btn-labeled.btn-success.hidden(type='button')
+              span.btn-label
+                i.glyphicon.glyphicon-ok
+              | Calculate
+        section#text_result
+        section#graph_result
+      section#wrapper-charts.hidden
+        blockquote Bests
+        canvas#chart-bests(width='1000', height='400')
+        blockquote Worsts
+        canvas#chart-worsts(width='1000', height='400')
+        blockquote Averages
+        canvas#chart-averages(width='1000', height='400')
+      section#wrapper-comparison.hidden
+        #comparison
+      section#wrapper-graph.hidden
+        #canvas
+    //
+       LIBRARIES 
+    script(src='javascripts/libraries/jquery-2.1.0.min.js')
+    script(src='bootstrap/bootstrap.min.js')
+    script(src='bootstrap/jasny-bootstrap.min.js')
+    script(src='bootstrap/bootstrap.touchspin.js')
+    script(src='javascripts/libraries/sugar.min.js')
+    script(src='javascripts/libraries/Chart.min.js')
+    script(src='javascripts/libraries/raphael-min.js')
+    script(src='javascripts/libraries/dracula_graffle.js')
+    script(src='javascripts/libraries/dracula_graph.js')
+    script(src='javascripts/libraries/highcharts.js')
+    script(src='javascripts/libraries/exporting.js')
+
+    //
+       ALGORITHM 
+    script(src='javascripts/classes.js')
+    script(src='javascripts/evolutions.js')
+    script(src='javascripts/builder.js')
+    script(src='javascripts/tsp.js')
+    script(src='javascripts/storage.js')
+    script(src='javascripts/drawer.js')
+    script(src='javascripts/main.js')

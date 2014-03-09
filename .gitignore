@@ -1,6 +1,10 @@
-.sass-cache
+index.html
+
 *.map
 javascripts/*.js
+
+.sass-cache
 stylesheets/*.css
+
 node_modules
 npm-debug.log

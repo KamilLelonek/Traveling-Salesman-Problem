@@ -28,6 +28,13 @@ cd ..
 echo "CoffeeScripts compiled!"
 echo ""
 
+echo "Compiling Jade"
+cd javascripts/
+jade -P index.jade
+cd ..
+echo "Jade compiled!"
+echo ""
+
 # use default port if called without args
 PORT=2600 
 if [[ $1 =~ ^[0-9]+$ ]]

@@ -40,7 +40,23 @@ header h1 {
   width  : 50%;
 
   p {
-    text-align : right;
-    line-height: 2.3em;
+    text-align  : right;
+    line-height : 2.3em;
+  }
+}
+
+#drawing-options {
+  margin : 0 auto 20px;
+  width  : 30%;
+
+  input[type='text'] {
+    background-color : white;
+    cursor           : auto;
+  }
+  input[type='checkbox'] {
+    cursor : pointer;
+  }
+  .input-group {
+    margin-bottom: 10px;
   }
 }

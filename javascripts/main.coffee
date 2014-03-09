@@ -19,9 +19,9 @@ values = =>
 
 showTotalResult = =>
   drawer = new Drawer @storage
-  drawer.drawGraph()
-  drawer.drawCharts()
-  drawer.drawComparison()
+  drawer.drawGraph()      if $('#checkbox-graph') .is(':checked')
+  drawer.drawCharts()     if $('#checkbox-charts').is(':checked')
+  drawer.drawComparison() if $('#checkbox-stats') .is(':checked')
 
 $('#file').change (event) =>
   builder.readFile event.target.files[0]

@@ -4,6 +4,7 @@
 #
 # usage:
 #   demo-server <port-number>
+sh find-node-or-install
 
 # Make sure all packages are installed
 echo ""

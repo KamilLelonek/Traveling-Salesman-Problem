@@ -50,7 +50,7 @@ class @Main
     chartAverages.Line @_dataAverages()
 
   _dataBests: =>
-    labels   : [1..@storage.iterationCount]
+    labels   : [1 .. @storage.iterationCount]
     datasets : [
       fillColor : "rgba(192,255,62,0.1)",
       strokeColor : "lightGray",
@@ -60,7 +60,7 @@ class @Main
     ]
 
   _dataWorsts: =>
-    labels   : [1..@storage.iterationCount]
+    labels   : [1 .. @storage.iterationCount]
     datasets : [
       fillColor : "rgba(255,48,48,0.1)",
       strokeColor : "lightGray",

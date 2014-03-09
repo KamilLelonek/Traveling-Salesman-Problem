@@ -12,11 +12,9 @@ class @Individual
 
   length: =>
     return @_totalLength if @_totalLength
-    count = @cities.length - 1
-    @cities.each (element, index) =>
-      if index isnt count
-        nextElement = @cities[index + 1]
-        @_totalLength += element.distanceTo nextElement
+    for i in [0 ... @cities.length - 1]
+      [element, nextElement] = @cities[i .. i + 1]
+      @_totalLength += element.distanceTo nextElement
     @_totalLength
 
 class @Population

@@ -4,7 +4,7 @@ class Evolution
 
   _getIndividualsToEvolve: (individuals) =>
     probability = Math.round individuals.length * (@percentage / 100)
-    individuals.sample probability
+    individuals.sortBy('length').to probability
 
 class @Selection extends Evolution
   constructor: (@maxCount)  ->

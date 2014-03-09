@@ -1,20 +1,19 @@
 class @Storage
-  constructor: ->
-    @reset()
-    @iterationCount = 0
+  constructor: -> @reset()
 
   reset: =>
-    @bests       = []
-    @worsts      = []
-    @averages    = []
-    @populations = []
+    @bests          = []
+    @worsts         = []
+    @averages       = []
+    @populations    = []
+    @iterationCount = 0
 
   store: (population) =>
     stats = population.stats()
-    @bests.push       stats.best
-    @worsts.push      stats.worst
-    @averages.push    stats.average
-    @populations.push population
+    @bests.unshift       stats.best
+    @worsts.unshift      stats.worst
+    @averages.unshift    stats.average
+    @populations.unshift population
 
     console.clear()
     console.log "\n\n#{(++@iterationCount).ordinalize()} iteration"

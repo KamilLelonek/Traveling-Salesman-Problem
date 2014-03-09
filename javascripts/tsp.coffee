@@ -10,13 +10,9 @@ class @TSP
     @mutation   = new Mutation  @mutation_percent
 
   inject: (cities) =>
-    individuals = [0...@population_count].map => new Individual cities.randomize()
-    @population = new Population individuals
+    @population = new Population [0 ... @population_count].map => new Individual cities.randomize()
 
   calculate: (callback, storage) =>
     @iteration_count.times =>
-      @population = @crossing.evolve  @population
-      @population = @mutation.evolve  @population
-      @population = @selection.evolve @population
-      storage.store @population
+      storage.store @population = @selection.evolve @mutation.evolve @crossing.evolve @population
     callback @population

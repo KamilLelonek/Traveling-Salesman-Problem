@@ -29,9 +29,7 @@ echo "CoffeeScripts compiled!"
 echo ""
 
 echo "Compiling Jade"
-cd javascripts/
 jade -P index.jade
-cd ..
 echo "Jade compiled!"
 echo ""
 

@@ -3,8 +3,16 @@ class Evolution
   evolve     : (population)  ->
 
   _getIndividualsToEvolve: (individuals) =>
-    probability = Math.round individuals.length * (@percentage / 100)
-    individuals.sortBy('length', true).to probability
+    @probability  = Math.round individuals.length * (@percentage / 100)
+    selectRandom  = [true, false].sample()
+    worst         = [true, false].sample()
+    selectRandom and @_pickRandom individuals or @_pickOnly(worst, individuals)
+
+  _pickOnly: (worst, individuals) =>
+    individuals.sortBy('length', worst).to @probability
+
+  _pickRandom : (individuals) =>
+    individuals.sample @probability
 
 class @Selection extends Evolution
   constructor: (@maxCount)  ->

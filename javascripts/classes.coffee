@@ -10,7 +10,7 @@ class @Individual
   constructor: (@cities = []) ->
 
   length: =>
-    @totalLength = 0
+    @totalLength = @cities.last().distanceTo @cities.first()
     for i in [0 ... @cities.length - 1]
       [element, nextElement] = @cities[i .. i + 1]
       @totalLength += element.distanceTo nextElement

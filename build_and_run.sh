@@ -16,20 +16,20 @@ echo ""
 # Make sure all files are build
 echo "Compiling SASS"
 cd stylesheets/
-sass main.scss main.css
+../node_modules/.bin/node-sass main.scss main.css
 cd ..
 echo "SASS compiled!"
 echo ""
 
 echo "Compiling CoffeeScripts"
 cd javascripts/
-coffee -m -c .
+../node_modules/.bin/coffee -m -c .
 cd ..
 echo "CoffeeScripts compiled!"
 echo ""
 
 echo "Compiling Jade"
-jade -P index.jade
+node_modules/.bin/jade -P index.jade
 echo "Jade compiled!"
 echo ""
 

@@ -6,7 +6,6 @@ handleCalculate = (cities) =>
 
 calculate = (cities) =>
   @storage = new Storage()
-  Country.initialize cities
   tsp      = new TSP values()
   tsp.inject cities
   tsp.calculate showTotalResult, @storage

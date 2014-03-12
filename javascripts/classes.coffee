@@ -25,7 +25,7 @@ class @Individual
     @calculateLength()
 
   calculateLength: =>
-    @totalLength = @cities.last().distanceTo @cities.first()
+    @totalLength = Country.distanceBetween @cities.last(), @cities.first()
     for i in [0 ... @cities.length - 1]
       [element, nextElement] = @cities[i .. i + 1]
       @totalLength += Country.distanceBetween element, nextElement

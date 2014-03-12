@@ -11,7 +11,7 @@ class @Drawer
     cities.each (element, index) =>
       if index isnt count
         nextElement = cities[index + 1]
-        edge = label: element.distanceTo(nextElement)
+        edge = label: Country.distanceBetween element, nextElement
         graph.addEdge element.id, nextElement.id, edge
 
     width  = $(document).width()  - 20

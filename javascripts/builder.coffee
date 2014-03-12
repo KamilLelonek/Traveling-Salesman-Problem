@@ -16,5 +16,3 @@ class @Builder
       if line.startsWith /[0-9]/
         [id, x, y] = line.match /\S+/g
         @cities.push new City(id, x, y)
-
-    @cities.add @cities.first()

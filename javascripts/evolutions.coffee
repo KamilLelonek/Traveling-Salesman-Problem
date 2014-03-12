@@ -9,23 +9,27 @@ class Evolution
     (selectRandom and @_pickRandom individuals) or @_pickOnly(worst, individuals)
 
   _pickOnly: (worst, individuals) =>
-    individuals.sortBy('length', worst).to @probability
+    individuals.sortBy('totalLength', worst).to @probability
 
   _pickRandom : (individuals) =>
     individuals.sample @probability
+
+  _buildPopulation : (individuals, individualsEvolved) =>
+    individualsEvolved.forEach (individual) => individual.calculateLength()
+    new Population individuals.include individualsEvolved
 
 class @Selection extends Evolution
   constructor: (@maxCount)  ->
   evolve     : (population) =>
     individuals = population.individuals[..]
-    new Population individuals.sortBy('length').to @maxCount
+    new Population individuals.sortBy('totalLength').to @maxCount
 
 class @Crossing extends Evolution
   evolve: (population) =>
     individuals = population.individuals[..]
     individualsToCross  = @_getIndividualsToEvolve individuals
     individualsCrossed  = @_crossIndividuals individualsToCross[..]
-    new Population individuals.include individualsCrossed
+    @_buildPopulation individuals, individualsCrossed
 
   _crossIndividuals: (individuals) =>
     return individuals if individuals.length < 3
@@ -47,7 +51,7 @@ class @Mutation extends Evolution
     individuals = population.individuals[..]
     individualsToMutate = @_getIndividualsToEvolve individuals
     individualsMutated  = @_mutateIndividuals individualsToMutate[..]
-    new Population individuals.include individualsMutated
+    @_buildPopulation individuals, individualsMutated
 
   _mutateIndividuals: (individuals) =>
     individuals.map (individual) =>

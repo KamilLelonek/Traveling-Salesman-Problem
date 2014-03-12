@@ -6,7 +6,8 @@ handleCalculate = (cities) =>
 
 calculate = (cities) =>
   @storage = new Storage()
-  tsp = new TSP values()
+  Country.initialize cities
+  tsp      = new TSP values()
   tsp.inject cities
   tsp.calculate showTotalResult, @storage
 
@@ -24,6 +25,7 @@ showTotalResult = =>
   drawer.drawComparison() if $('#checkbox-stats') .is(':checked')
 
 $('#file').change (event) =>
+  builder = new Builder(handleCalculate)
   builder.readFile event.target.files[0]
 
 $('#percentage-mutation')
@@ -57,5 +59,3 @@ $('#iteration-count')
     max     : 20
     step    : 1
     initval : 10
-
-builder = new Builder(handleCalculate)

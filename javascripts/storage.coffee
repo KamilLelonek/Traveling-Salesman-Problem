@@ -17,10 +17,9 @@ class @Storage
 
     console.clear()
     console.log "\n\n#{(++@iterationCount).ordinalize()} iteration"
-    console.log "Best    : #{stats.best.length()}"
-    console.log "Worst   : #{stats.worst.length()}"
+    console.log "Best    : #{stats.best.totalLength}"
+    console.log "Worst   : #{stats.worst.totalLength}"
     console.log "Average : #{stats.average}"
 
-
-  worstsIndividuals : => @worsts.map 'length'
-  bestsIndividuals  : => @bests.map  'length'
+  worstsIndividuals : => @worsts.map 'totalLength'
+  bestsIndividuals  : => @bests.map  'totalLength'

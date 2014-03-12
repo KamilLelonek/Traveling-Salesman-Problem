@@ -35,6 +35,8 @@ class @Population
   constructor : (@individuals) ->
 
   stats: =>
-    best    : @individuals.min('totalLength')
-    worst   : @individuals.max('totalLength')
-    average : @individuals.average('totalLength')
+    best  = @individuals.min('totalLength').totalLength
+    worst = @individuals.max('totalLength').totalLength
+    best    : best
+    worst   : worst
+    average : (best + worst) / 2

@@ -39,7 +39,7 @@ class @Drawer
       strokeColor      : "lightGray",
       pointColor       : "white",
       pointStrokeColor : "#99CC00",
-      data             : @storage.bestsIndividuals()
+      data             : @storage.bests
     ]
 
   _dataWorsts: =>
@@ -49,7 +49,7 @@ class @Drawer
       strokeColor      : "lightGray",
       pointColor       : "white",
       pointStrokeColor : "FF4444",
-      data             : @storage.worstsIndividuals()
+      data             : @storage.worsts
     ]
 
   _dataAverages: =>
@@ -108,11 +108,11 @@ class @Drawer
       series: [
         {
           name: "Bests"
-          data: @storage.bestsIndividuals()
+          data: @storage.bests
         }
         {
           name: "Worsts"
-          data: @storage.worstsIndividuals()
+          data: @storage.worsts
         }
         {
           name: "Averages"

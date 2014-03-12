@@ -20,6 +20,3 @@ class @Storage
     console.log "Best    : #{stats.best.totalLength}"
     console.log "Worst   : #{stats.worst.totalLength}"
     console.log "Average : #{stats.average}"
-
-  worstsIndividuals : => @worsts.map 'totalLength'
-  bestsIndividuals  : => @bests.map  'totalLength'

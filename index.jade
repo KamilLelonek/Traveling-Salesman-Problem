@@ -52,8 +52,15 @@ html
             input.form-control(type='text', value='Draw graph', disabled='disabled')
             span.input-group-addon
               input#checkbox-graph(type='checkbox')
+        #btn-mode.btn-group(data-toggle='buttons')
+          label.btn.btn-warning.btn-mode.active(data-mode='graphical')
+            input#option1(type='radio', name='options')
+            | Graphical
+          label.btn.btn-warning.btn-mode(data-mode='textual')
+            input#option2(type='radio', name='options')
+            | Textual
         section#file-uploader
-          .fileinput.fileinput-new.col-xs-4.col-xs-offset-3(data-provides='fileinput')
+          .fileinput.fileinput-new.col-xs-4.col-xs-offset-2(data-provides='fileinput')
             .input-group
               .form-control(data-trigger='fileinput')
                 i.glyphicon.glyphicon-file.fileinput-exists
@@ -64,14 +71,14 @@ html
                 input#file(type='file', name='file')
               a.input-group-addon.btn.btn-danger.fileinput-exists(href='#', data-dismiss='fileinput') Remove
           .col-xs-2
-            a.btn.btn-info(href='/datasets')
-              span.badge.pull-right 6
-              | Datasets&nbsp;
-          .col-xs-1
             button#btn-calculate.btn.btn-labeled.btn-success.hidden(type='button')
               span.btn-label
                 i.glyphicon.glyphicon-ok
               | Calculate
+          .col-xs-2
+            a.btn.btn-info(href='/datasets')
+              span.badge.pull-right 6
+              | Datasets&nbsp;
         section#text_result
         section#graph_result
       section#wrapper-charts.hidden
@@ -108,4 +115,6 @@ html
     script(src='javascripts/random.js')
     script(src='javascripts/storage.js')
     script(src='javascripts/drawer.js')
+    script(src='javascripts/iterator.js')
+    script(src='javascripts/printer.js')
     script(src='javascripts/main.js')

@@ -17,6 +17,6 @@ class @Storage
 
     console.clear()
     console.log "\n\n#{(++@iterationCount).ordinalize()} iteration"
-    console.log "Best    : #{stats.best.totalLength}"
-    console.log "Worst   : #{stats.worst.totalLength}"
+    console.log "Best    : #{stats.best}"
+    console.log "Worst   : #{stats.worst}"
     console.log "Average : #{stats.average}"

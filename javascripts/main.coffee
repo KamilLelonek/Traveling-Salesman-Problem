@@ -1,5 +1,4 @@
 $('#file').change (event) =>
-  $('textarea').text ''
   fileName = event.target.files[0]
   if fileName
     builder = new Builder(handleCalculate)
@@ -9,6 +8,7 @@ handleCalculate = (@cities) =>
   $('#btn-calculate')
   .toggleClass('hidden', cities.isEmpty())
   .click =>
+      $('textarea').text ''
       console.clear()
       calculate()
 

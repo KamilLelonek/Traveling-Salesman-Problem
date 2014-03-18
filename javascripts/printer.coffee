@@ -1,21 +1,22 @@
 class @Printer
-  consoleLog = console.log
   @fileBuffer = []
-  console.log = ->
-    Printer.fileBuffer.add arguments
+  @buffer = $('textarea')
+
+  consoleLog = console.log
+  console.log = (message) ->
+    Printer.buffer.append("#{message}\n").trigger('autosize.resize')
     consoleLog.apply(this, arguments)
 
   @printSection : (message) ->
     log '\n-------------------'
     log message
-    console.log '-------------------\n'
+    log '-------------------\n'
 
   @printStats : (iterationCount, stats, localBests, globalBests) ->
-    console.clear()
-    console.log "\n\n#{(iterationCount).ordinalize()} iteration"
-    console.log "Local  best        : #{round(stats.best, 2)}"
-    console.log "Global best        : #{round(globalBests.last(), 2)}"
-    console.log "Worst              : #{round(stats.worst, 2)}"
-    console.log "Average            : #{round(stats.average, 2)}"
-    console.log "Evaluation count   : #{TSP.evaluationCount}"
-    console.log "Standard deviation : #{getStandardDeviation globalBests}"
+    log "\n\n#{(iterationCount).ordinalize()} iteration"
+    log "  => Local  best        : #{round(stats.best, 2)}"
+    log "  => Global best        : #{round(globalBests.last(), 2)}"
+    log "  => Worst              : #{round(stats.worst, 2)}"
+    log "  => Average            : #{round(stats.average, 2)}"
+    log "  => Evaluation count   : #{TSP.evaluationCount}"
+    log "  => Standard deviation : #{getStandardDeviation globalBests}"

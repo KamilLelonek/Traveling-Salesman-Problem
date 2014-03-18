@@ -22,11 +22,11 @@ class @Iterator
 
   iterate : (@population) =>
     @parameters.each (parameter) =>
-      console.log "Current parameter name: #{parameter.name}"
+      log "Current parameter name: #{parameter.name}"
       parameter.values.each (value) =>
-        console.log "Current parameter value: #{value}"
+        log "Current parameter value: #{value}"
         10.times (iteration) =>
-          console.log "Current repetition number: #{iteration + 1}"
+          log "Current repetition number: #{iteration + 1}"
           @calculate name
 
   calculate : (name) =>

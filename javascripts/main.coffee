@@ -6,6 +6,7 @@ handleCalculate = (cities) =>
   $('#btn-calculate')
   .toggleClass('hidden', cities.isEmpty())
   .click =>
+      console.clear()
       calculate cities
 
 calculate = (cities) =>
@@ -21,12 +22,16 @@ textual = (cities) =>
   iterator.iterate cities
 
 graphical = (cities) =>
+  tsp    cities
+  random cities
 
+tsp = (cities) =>
   @storage = new Storage()
   tsp      = new TSP values()
   tsp.inject cities
   tsp.calculate showTotalResult, @storage
 
+random = (cities) =>
   random = new Random cities
   bestRandom = random.bestRandomIndividual values().population_size
   Printer.printSection "Best random individual: #{bestRandom}"
@@ -61,3 +66,5 @@ $('#percentage-mutation').TouchSpin percentageData
 $('#percentage-crossing').TouchSpin percentageData
 $('#population-count')   .TouchSpin countData
 $('#iteration-count')    .TouchSpin countData
+
+$('textarea').autosize()

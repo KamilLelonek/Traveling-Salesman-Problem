@@ -79,8 +79,6 @@ html
             a.btn.btn-info(href='/datasets')
               span.badge.pull-right 6
               | Datasets&nbsp;
-        section#text_result
-        section#graph_result
       section#wrapper-charts.hidden
         blockquote Bests
         canvas#chart-bests(width='1000', height='400')
@@ -92,6 +90,8 @@ html
         #comparison
       section#wrapper-graph.hidden
         #canvas
+      section#text_result
+        textarea
     //
        LIBRARIES 
     script(src='javascripts/libraries/jquery-2.1.0.min.js')
@@ -106,6 +106,7 @@ html
     script(src='javascripts/libraries/highcharts.js')
     script(src='javascripts/libraries/exporting.js')
     script(src='javascripts/libraries/math.js')
+    script(src='javascripts/libraries/jquery.autosize.min.js')
 
     //
        ALGORITHM 

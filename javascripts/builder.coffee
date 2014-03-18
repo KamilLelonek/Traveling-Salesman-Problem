@@ -6,7 +6,10 @@ class @Builder
       Country.initialize cities
       callback cities
 
-  readFile: (file) -> try @reader.readAsBinaryString file
+  readFile: (file) ->
+    try @reader.readAsBinaryString file
+    catch error
+      console.log error.message
 
   _buildCities: (event) ->
     fileContent = event.target.result

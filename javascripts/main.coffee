@@ -1,15 +1,18 @@
 $('#file').change (event) =>
-  builder = new Builder(handleCalculate)
-  builder.readFile event.target.files[0]
+  $('textarea').text ''
+  fileName = event.target.files[0]
+  if fileName
+    builder = new Builder(handleCalculate)
+    builder.readFile fileName
 
-handleCalculate = (cities) =>
+handleCalculate = (@cities) =>
   $('#btn-calculate')
   .toggleClass('hidden', cities.isEmpty())
   .click =>
       console.clear()
-      calculate cities
+      calculate()
 
-calculate = (@cities) =>
+calculate = =>
   @storage = new Storage()
   switch mode()
     when 'graphical' then graphical cities

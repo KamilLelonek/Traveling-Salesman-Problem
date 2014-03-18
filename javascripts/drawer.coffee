@@ -39,7 +39,7 @@ class @Drawer
       strokeColor      : "lightGray",
       pointColor       : "white",
       pointStrokeColor : "#99CC00",
-      data             : @storage.bests
+      data             : @storage.localBests
     ]
 
   _dataWorsts: =>
@@ -90,16 +90,11 @@ class @Drawer
         '#99CC00'
         '#FF4444'
         '#33B5E5'
+        '#FF8800'
       ]
 
       tooltip:
         valueSuffix: " m"
-
-      legend:
-        align         : "left"
-        floating      : true
-        verticalAlign : "top"
-        borderWidth   : 0
 
       tooltip:
         shared      : true
@@ -108,7 +103,7 @@ class @Drawer
       series: [
         {
           name: "Bests"
-          data: @storage.bests
+          data: @storage.localBests
         }
         {
           name: "Worsts"
@@ -117,5 +112,9 @@ class @Drawer
         {
           name: "Averages"
           data: @storage.averages
+        }
+        {
+          name: "Global bests"
+          data: @storage.globalBests
         }
       ]

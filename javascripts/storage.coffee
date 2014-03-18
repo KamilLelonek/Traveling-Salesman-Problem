@@ -2,7 +2,8 @@ class @Storage
   constructor: -> @reset()
 
   reset: =>
-    @bests          = []
+    @localBests     = []
+    @globalBests    = []
     @worsts         = []
     @averages       = []
     @populations    = []
@@ -10,13 +11,16 @@ class @Storage
 
   store: (population) =>
     stats = population.stats()
-    @bests.push       stats.best
-    @worsts.push      stats.worst
-    @averages.push    stats.average
+
+    @addGlobalBest    stats.best
+    @localBests .push stats.best
+    @worsts     .push stats.worst
+    @averages   .push stats.average
     @populations.push population
 
-    console.clear()
-    console.log "\n\n#{(++@iterationCount).ordinalize()} iteration"
-    console.log "Best    : #{stats.best}"
-    console.log "Worst   : #{stats.worst}"
-    console.log "Average : #{stats.average}"
+    Printer.printStats(++@iterationCount, stats, @localBests, @globalBests)
+
+  addGlobalBest : (best) =>
+    currentGlobalBest = @globalBests.last()
+    return @globalBests[0] = best unless currentGlobalBest
+    @globalBests.push Math.min best, currentGlobalBest

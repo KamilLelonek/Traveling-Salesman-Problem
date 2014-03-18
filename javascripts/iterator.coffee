@@ -26,7 +26,6 @@ class @Iterator
       parameter.values.each (value) =>
         console.log "Current parameter value: #{value}"
         10.times (iteration) =>
-          console.log "\n----------------------"
           console.log "Current repetition number: #{iteration + 1}"
           @calculate name
 

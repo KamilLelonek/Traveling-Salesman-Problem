@@ -21,6 +21,16 @@ html
         section#controls
           .row
             .col-xs-4
+              p Population size
+            .col-xs-8
+              input#population-count.form-control(type='text')
+          .row
+            .col-xs-4
+              p Iteration count
+            .col-xs-8
+              input#iteration-count.form-control(type='text')
+          .row
+            .col-xs-4
               p Percentage mutation
             .col-xs-8
               input#percentage-mutation.form-control(type='text')
@@ -29,16 +39,6 @@ html
               p Percentage crossing
             .col-xs-8
               input#percentage-crossing.form-control(type='text')
-          .row
-            .col-xs-4
-              p Population count
-            .col-xs-8
-              input#population-count.form-control(type='text')
-          .row
-            .col-xs-4
-              p Iteration count
-            .col-xs-8
-              input#iteration-count.form-control(type='text')
         section#drawing-options
           .input-group
             input.form-control(type='text', value='Display charts', disabled='disabled')
@@ -105,6 +105,7 @@ html
     script(src='javascripts/libraries/dracula_graph.js')
     script(src='javascripts/libraries/highcharts.js')
     script(src='javascripts/libraries/exporting.js')
+    script(src='javascripts/libraries/math.js')
 
     //
        ALGORITHM 

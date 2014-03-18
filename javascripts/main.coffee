@@ -1,3 +1,7 @@
+$('#file').change (event) =>
+  builder = new Builder(handleCalculate)
+  builder.readFile event.target.files[0]
+
 handleCalculate = (cities) =>
   $('#btn-calculate')
   .toggleClass('hidden', cities.isEmpty())
@@ -8,19 +12,24 @@ calculate = (cities) =>
   switch mode()
     when 'graphical' then graphical cities
     when 'textual'   then textual   cities
+    else throw 'Unknown representation mode'
 
-mode = ->
-  $('.btn-mode.active').data('mode')
+mode = -> $('#btn-mode').find('.active').data('mode')
 
 textual = (cities) =>
   iterator = new Iterator()
   iterator.iterate cities
 
 graphical = (cities) =>
+
   @storage = new Storage()
   tsp      = new TSP values()
   tsp.inject cities
   tsp.calculate showTotalResult, @storage
+
+  random = new Random cities
+  bestRandom = random.bestRandomIndividual values().population_size
+  Printer.printSection "Best random individual: #{bestRandom}"
 
 values = =>
   population_size      : parseInt $("#population-count")   .val()
@@ -34,38 +43,21 @@ showTotalResult = =>
   drawer.drawCharts()     if $('#checkbox-charts').is(':checked')
   drawer.drawComparison() if $('#checkbox-stats') .is(':checked')
 
-$('#file').change (event) =>
-  builder = new Builder(handleCalculate)
-  builder.readFile event.target.files[0]
+percentageData =
+  min     : 0
+  max     : 100
+  step    : 10
+  boostat : 30
+  initval : 30
+  postfix : '%'
 
-$('#percentage-mutation')
-.TouchSpin
-    min     : 0
-    max     : 100
-    step    : 10
-    boostat : 30
-    initval : 40
-    postfix : '%'
+countData =
+  min     : 5
+  max     : 100
+  step    : 1
+  initval : 20
 
-$('#percentage-crossing')
-.TouchSpin
-    min     : 0
-    max     : 100
-    step    : 10
-    boostat : 30
-    initval : 40
-    postfix : '%'
-
-$('#population-count')
-.TouchSpin
-    min     : 5
-    max     : 100
-    step    : 1
-    initval : 10
-
-$('#iteration-count')
-.TouchSpin
-    min     : 5
-    max     : 20
-    step    : 1
-    initval : 10
+$('#percentage-mutation').TouchSpin percentageData
+$('#percentage-crossing').TouchSpin percentageData
+$('#population-count')   .TouchSpin countData
+$('#iteration-count')    .TouchSpin countData

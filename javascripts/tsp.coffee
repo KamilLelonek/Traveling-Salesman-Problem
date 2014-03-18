@@ -1,5 +1,4 @@
 class @TSP
-
   constructor: (vals) ->
     TSP.evaluationCount = 0
     @population_count = vals['population_size']      ? 100

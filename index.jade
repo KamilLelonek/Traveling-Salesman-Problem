@@ -54,11 +54,18 @@ html
               input#checkbox-graph(type='checkbox')
         #btn-mode.btn-group(data-toggle='buttons')
           label.btn.btn-warning.btn-mode.active(data-mode='graphical')
-            input#option1(type='radio', name='options')
+            input#option1(type='radio', name='mode')
             | Graphical
           label.btn.btn-warning.btn-mode(data-mode='textual')
-            input#option2(type='radio', name='options')
+            input#option2(type='radio', name='mode')
             | Textual
+        #btn-alg.btn-group(data-toggle='buttons')
+          label.btn.btn-info.btn-alg.active(data-alg='tsp')
+            input#option1(type='radio', name='algorithm')
+            | TSP
+          label.btn.btn-info.btn-alg(data-alg='random')
+            input#option2(type='radio', name='algorithm')
+            | Random
         section#file-uploader
           .fileinput.fileinput-new.col-xs-4.col-xs-offset-2(data-provides='fileinput')
             .input-group
@@ -76,7 +83,7 @@ html
                 i.glyphicon.glyphicon-ok
               | Calculate
           .col-xs-2
-            a.btn.btn-info(href='/datasets')
+            a.btn.btn-default(href='/datasets')
               span.badge.pull-right 6
               | Datasets&nbsp;
       section#wrapper-charts.hidden

@@ -9,32 +9,35 @@ handleCalculate = (cities) =>
       console.clear()
       calculate cities
 
-calculate = (cities) =>
+calculate = (@cities) =>
+  @storage = new Storage()
   switch mode()
     when 'graphical' then graphical cities
     when 'textual'   then textual   cities
     else throw 'Unknown representation mode'
 
-mode = -> $('#btn-mode').find('.active').data('mode')
+mode      = -> $('#btn-mode').find('.active').data('mode')
+algorithm = -> $('#btn-alg') .find('.active').data('alg')
 
 textual = (cities) =>
   iterator = new Iterator()
   iterator.iterate cities
 
 graphical = (cities) =>
-  tsp    cities
-  random cities
+  switch algorithm()
+    when 'tsp'    then tsp()
+    when 'random' then rand()
+    else throw 'Unknown algorithm'
 
-tsp = (cities) =>
-  @storage = new Storage()
-  tsp      = new TSP values()
-  tsp.inject cities
-  tsp.calculate showTotalResult, @storage
+tsp = =>
+  performAlgorithm new TSP values()
 
-random = (cities) =>
-  random = new Random cities
-  bestRandom = random.bestRandomIndividual values().population_size
-  Printer.printSection "Best random individual: #{bestRandom}"
+rand = =>
+  performAlgorithm new Random values()
+
+performAlgorithm = (algorithm) =>
+  algorithm.inject @cities
+  algorithm.calculate showTotalResult, @storage
 
 values = =>
   population_size      : parseInt $("#population-count")   .val()

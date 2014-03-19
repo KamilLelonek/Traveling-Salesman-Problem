@@ -12,8 +12,8 @@ class @Printer
     log message
     log '-------------------\n'
 
-  @printStats : (iterationCount, stats, localBests, globalBests) ->
-    log "\n\n#{(iterationCount).ordinalize()} iteration"
+  @printStats : (generationCount, stats, localBests, globalBests) ->
+    log "\n\n#{(generationCount).ordinalize()} generation"
     log "  => Local  best        : #{round(stats.best, 2)}"
     log "  => Global best        : #{round(globalBests.last(), 2)}"
     log "  => Worst              : #{round(stats.worst, 2)}"

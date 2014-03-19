@@ -2,12 +2,12 @@ class @Storage
   constructor: -> @reset()
 
   reset: =>
-    @localBests     = []
-    @globalBests    = []
-    @worsts         = []
-    @averages       = []
-    @populations    = []
-    @iterationCount = 0
+    @localBests      = []
+    @globalBests     = []
+    @worsts          = []
+    @averages        = []
+    @populations     = []
+    @generationCount = 0
 
   store: (population) =>
     stats = population.stats()
@@ -18,7 +18,7 @@ class @Storage
     @averages   .push stats.average
     @populations.push population
 
-    Printer.printStats(++@iterationCount, stats, @localBests, @globalBests)
+    Printer.printStats(++@generationCount, stats, @localBests, @globalBests)
 
   addGlobalBest : (best) =>
     currentGlobalBest = @globalBests.last()

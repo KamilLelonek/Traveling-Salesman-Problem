@@ -44,7 +44,7 @@ performAlgorithm = (algorithm) =>
 
 values = =>
   population_size      : parseInt $("#population-count")   .val()
-  generation_count     : parseInt $("#iteration-count")    .val()
+  generation_count     : parseInt $("#generation-count")   .val()
   mutation_propability : parseInt $("#percentage-mutation").val()
   crossing_propability : parseInt $("#percentage-crossing").val()
 
@@ -71,6 +71,6 @@ countData =
 $('#percentage-mutation').TouchSpin percentageData
 $('#percentage-crossing').TouchSpin percentageData
 $('#population-count')   .TouchSpin countData
-$('#iteration-count')    .TouchSpin countData
+$('#generation-count')   .TouchSpin countData
 
 $('textarea').autosize()

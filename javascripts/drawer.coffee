@@ -33,7 +33,7 @@ class @Drawer
     chartAverages.Line @_dataAverages()
 
   _dataBests: =>
-    labels   : [1 .. @storage.iterationCount]
+    labels   : [1 .. @storage.generationCount]
     datasets : [
       fillColor        : "rgba(192,255,62,0.1)",
       strokeColor      : "lightGray",
@@ -43,7 +43,7 @@ class @Drawer
     ]
 
   _dataWorsts: =>
-    labels   : [1 .. @storage.iterationCount]
+    labels   : [1 .. @storage.generationCount]
     datasets : [
       fillColor        : "rgba(255,48,48,0.1)",
       strokeColor      : "lightGray",
@@ -53,7 +53,7 @@ class @Drawer
     ]
 
   _dataAverages: =>
-    labels   : [1 .. @storage.iterationCount]
+    labels   : [1 .. @storage.generationCount]
     datasets : [
       fillColor        : "rgba(135,206,250,0.1)",
       strokeColor      : "lightGray",
@@ -70,11 +70,11 @@ class @Drawer
         x: -20
 
       subtitle:
-        text: "Data from #{@storage.iterationCount} cycles"
+        text: "Data from #{@storage.generationCount} cycles"
         x: -20
 
       xAxis:
-        categories: [1 .. @storage.iterationCount]
+        categories: [1 .. @storage.generationCount]
 
       yAxis:
         title:

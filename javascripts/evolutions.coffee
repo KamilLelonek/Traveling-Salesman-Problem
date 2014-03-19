@@ -15,10 +15,7 @@ class Evolution
     individuals.sample @probability
 
   _buildPopulation : (individuals, individualsEvolved) =>
-    individualsEvolved.forEach (individual) =>
-      TSP.evaluationCount++
-      individual.calculateLength()
-
+    individualsEvolved.forEach (individual) => individual.invalidate()
     new Population individuals.include individualsEvolved
 
 class @Selection extends Evolution

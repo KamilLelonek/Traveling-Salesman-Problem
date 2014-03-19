@@ -22,14 +22,14 @@ class @Individual
 
   constructor: (@cities = []) ->
     @id = @constructor.COUNTER++
-    @calculateLength()
+    @invalidate()
 
-  calculateLength: =>
+  invalidate: =>
+    TSP.evaluationCount++
     @totalLength = Country.distanceBetween @cities.last(), @cities.first()
     for i in [0 ... @cities.length - 1]
       [element, nextElement] = @cities[i .. i + 1]
       @totalLength += Country.distanceBetween element, nextElement
-    @totalLength
 
 class @Population
   constructor : (@individuals) ->
